@@ -25,6 +25,7 @@ document.addEventListener("mouseup", clickEnd, false);
 
 var player = new Player();
 var enemySystem = new EnemySystem();
+var berrySystem = new BerrySystem();
 
 function main() {
     roller = requestAnimFrame(main);
@@ -36,6 +37,7 @@ function main() {
 
     player.run();
     enemySystem.run();
+    berrySystem.run();
 };
 
 function drawBackground() {
@@ -68,4 +70,5 @@ function gameOver() {
     cancelAnimationFrame(roller);
 };
 
+berrySystem.spawn();
 main();

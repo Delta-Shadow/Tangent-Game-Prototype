@@ -8,6 +8,13 @@ var Player = function() {
     this.acceleration = {x: 0, y: 0};
     this.speed = 0.2;
     this.followMouse = false;
+    this.score = 0;
+};
+
+Player.prototype.drawScore = function() {
+    ctx.fillStyle = "DarkGray";
+    ctx.font = "100px Arial";
+    ctx.fillText("" + this.score, 220, 250);
 };
 
 Player.prototype.snapTheCenterOfRotation = function() {
@@ -18,6 +25,7 @@ Player.prototype.snapTheCenterOfRotation = function() {
 };
 
 Player.prototype.run = function() {
+    this.drawScore();
     this.update();
     this.draw();
 };

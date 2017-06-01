@@ -1,6 +1,6 @@
 var EnemySystem = function() {
     this.enemies = [];
-    this.enemyCap = 15;
+    this.enemyCap = 10;
 };
 
 EnemySystem.prototype.spawn = function() {
