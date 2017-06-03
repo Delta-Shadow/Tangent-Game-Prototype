@@ -10,7 +10,7 @@
               };
     })();
 
-alert("This is new !");
+alert("This is latest !");
 
 var width = 500;
 var height = 500;
@@ -21,12 +21,12 @@ var roller;
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext("2d");
 
-document.addEventListener("mousemove", mouseMoved, false);
-document.addEventListener("mousedown", clickStart, false);
-document.addEventListener("mouseup", clickEnd, false);
-document.addEventListener("touchstart", touchStart, false);
-document.addEventListener("touchend", touchEnd, false);
-document.addEventListener("touchmove", touchMoved, false);
+canvas.addEventListener("mousemove", mouseMoved, false);
+canvas.addEventListener("mousedown", clickStart, false);
+canvas.addEventListener("mouseup", clickEnd, false);
+canvas.addEventListener("touchstart", touchStart, false);
+canvas.addEventListener("touchend", touchEnd, false);
+canvas.addEventListener("touchmove", touchMoved, false);
 
 var player = new Player();
 var enemySystem = new EnemySystem();
@@ -78,6 +78,7 @@ function touchMoved(e) {
     e.preventDefault();
     mousePos.x = e.changedTouches[0].clientX;
     mousePos.y = e.changedTouches[0].clientY;
+    console.log(mousePos.x, mousePos.y);
 };
 
 function touchStart(e) {
