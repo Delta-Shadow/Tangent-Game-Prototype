@@ -43,8 +43,6 @@ Player.prototype.checkCollisionWithPoint = function(point) {
 Player.prototype.update = function() {
     if (this.killTimer > 0) {
         this.killTimer--;
-    } else {
-        console.log("Cannot Kill");
     };
     if (this.followMouse == true) {
         this.x = mousePos.x;

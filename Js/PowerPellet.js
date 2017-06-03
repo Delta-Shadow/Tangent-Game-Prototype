@@ -13,7 +13,6 @@ PowerPelletSystem.prototype.run = function() {
     for (var i in this.berries) {
         if (this.berries[i].checkCollisionWithPlayer()) {
             player.killTimer = 300;
-            console.log("Can Kill");
             delete this.berries[i];
         } else {
             this.berries[i].update();

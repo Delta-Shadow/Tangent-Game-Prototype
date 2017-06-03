@@ -22,6 +22,8 @@ var ctx = canvas.getContext("2d");
 document.addEventListener("mousemove", mouseMoved, false);
 document.addEventListener("mousedown", clickStart, false);
 document.addEventListener("mouseup", clickEnd, false);
+document.addEventListener("touchstart", touchStart, false);
+document.addEventListener("touchend", touchEnd, false);
 
 var player = new Player();
 var enemySystem = new EnemySystem();
@@ -49,6 +51,7 @@ function drawBackground() {
 };
 
 function mouseMoved(e) {
+    e.preventDefault();
     mousePos.x = e.clientX;
     mousePos.y = e.clientY;
 };
@@ -64,6 +67,27 @@ function clickStart(e) {
 };
 
 function clickEnd(e) {
+    e.preventDefault();
+    player.followMouse = false;
+};
+
+function touchMoved(e) {
+    e.preventDefault();
+    mousePos.x = e.changedTouches[0].clientX;
+    mousePos.y = e.changedTouches[0].clientY;
+};
+
+function touchStart(e) {
+    e.preventDefault();
+    if (player.checkCollisionWithPoint(mousePos)) {
+        // Set Current Player Position as Center Of Rotation
+        player.snapTheCenterOfRotation();
+        // Make Player Follow Mouse
+        player.followMouse = true;
+    };
+};
+
+function touchEnd(e) {
     e.preventDefault();
     player.followMouse = false;
 };
