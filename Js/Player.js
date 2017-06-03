@@ -9,6 +9,7 @@ var Player = function() {
     this.speed = 0.2;
     this.followMouse = false;
     this.score = 0;
+    this.killTimer = 0;
 };
 
 Player.prototype.drawScore = function() {
@@ -40,6 +41,11 @@ Player.prototype.checkCollisionWithPoint = function(point) {
 };
 
 Player.prototype.update = function() {
+    if (this.killTimer > 0) {
+        this.killTimer--;
+    } else {
+        console.log("Cannot Kill");
+    };
     if (this.followMouse == true) {
         this.x = mousePos.x;
         this.y = mousePos.y;
@@ -68,10 +74,12 @@ Player.prototype.drawCircle = function(type, x, y) {
     } else {
         ctx.fillStyle = "Green";
     };
-    // ctx.fillStyle = this.color;
+    ctx.strokeStyle = "Yellow";
+    ctx.lineWidth = 10;
     ctx.beginPath();
     ctx.arc(x, y, this.radius, 0, 2*Math.PI);
     ctx.closePath();
+    if (this.killTimer > 0) {ctx.stroke()};
     ctx.fill();
 };
 

@@ -1,6 +1,6 @@
 var EnemySystem = function() {
     this.enemies = [];
-    this.enemyCap = 10;
+    this.enemyCap = 5;
 };
 
 EnemySystem.prototype.spawn = function() {
@@ -17,7 +17,11 @@ EnemySystem.prototype.spawn = function() {
 EnemySystem.prototype.run = function() {
     for (var i in this.enemies) {
         if (this.enemies[i].checkCollisionWithPlayer()) {
-            gameOver();
+            if (player.killTimer == 0) {
+                gameOver();
+            } else {
+                delete this.enemies[i];
+            };
         } else {
             this.enemies[i].handleCollisionWithEdges();
             this.enemies[i].update();

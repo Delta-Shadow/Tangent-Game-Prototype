@@ -26,6 +26,7 @@ document.addEventListener("mouseup", clickEnd, false);
 var player = new Player();
 var enemySystem = new EnemySystem();
 var berrySystem = new BerrySystem();
+var powerPelletSystem = new PowerPelletSystem();
 
 function main() {
     roller = requestAnimFrame(main);
@@ -34,10 +35,12 @@ function main() {
     
     drawBackground();
     if (ticker % 100 == 0) {enemySystem.spawn()};
+    if (ticker % 400 == 0) {powerPelletSystem.spawn()};
 
     player.run();
     enemySystem.run();
     berrySystem.run();
+    powerPelletSystem.run();
 };
 
 function drawBackground() {
