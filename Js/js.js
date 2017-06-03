@@ -10,6 +10,8 @@
               };
     })();
 
+alert("This is new !");
+
 var width = 500;
 var height = 500;
 var mousePos = {x: 0, y: 0};
@@ -24,6 +26,7 @@ document.addEventListener("mousedown", clickStart, false);
 document.addEventListener("mouseup", clickEnd, false);
 document.addEventListener("touchstart", touchStart, false);
 document.addEventListener("touchend", touchEnd, false);
+document.addEventListener("touchmove", touchMoved, false);
 
 var player = new Player();
 var enemySystem = new EnemySystem();
