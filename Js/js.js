@@ -10,7 +10,7 @@
               };
     })();
 
-alert("This is latest !");
+alert("This is new!");
 
 var width = 500;
 var height = 500;
@@ -78,11 +78,10 @@ function touchMoved(e) {
     e.preventDefault();
     mousePos.x = e.changedTouches[0].clientX;
     mousePos.y = e.changedTouches[0].clientY;
-    alert(mousePos.x, mousePos.y);
 };
 
 function touchStart(e) {
-    e.preventDefault();
+    touchMoved(e);
     if (player.checkCollisionWithPoint(mousePos)) {
         // Set Current Player Position as Center Of Rotation
         player.snapTheCenterOfRotation();
@@ -92,7 +91,7 @@ function touchStart(e) {
 };
 
 function touchEnd(e) {
-    e.preventDefault();
+    touchMoved(e);
     player.followMouse = false;
 };
 
