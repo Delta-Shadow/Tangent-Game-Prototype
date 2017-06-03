@@ -10,8 +10,6 @@
               };
     })();
 
-alert("This is new!");
-
 var width = 500;
 var height = 500;
 var mousePos = {x: 0, y: 0};
