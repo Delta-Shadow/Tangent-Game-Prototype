@@ -78,7 +78,7 @@ function touchMoved(e) {
     e.preventDefault();
     mousePos.x = e.changedTouches[0].clientX;
     mousePos.y = e.changedTouches[0].clientY;
-    console.log(mousePos.x, mousePos.y);
+    alert(mousePos.x, mousePos.y);
 };
 
 function touchStart(e) {
